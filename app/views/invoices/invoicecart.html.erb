@@ -1,0 +1,24 @@
+<h1>Invoice</h1>
+
+<ul>
+  <% @items = [] %>
+  <% @items << @my_items %>
+  
+  <table>
+  <h1>items</h1>
+	<tr>
+		<th>Item Id</th>
+		<th>Item name</th>
+		<th>Item price</th>
+		<th>Item rating</th>
+	</tr>
+    <% @items.each do |item| %>
+    <tr>
+      <td><%= item.id %></td>
+      <td><%= item.name %></td>
+      <td><%= item.price %></td>
+      <td><%= item.rating %></td>
+    </tr>
+    <% end %>
+</table>
+</ul>

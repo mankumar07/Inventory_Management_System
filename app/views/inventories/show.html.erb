@@ -1,0 +1,35 @@
+<h1 class = "text-danger p-3 mb-2 bg-success text-white text-center"><%= @inventory.category_name %> Items</h1>
+<% if current_user.has_role? :admin %>
+  <a href="/inventories/<%= @inventory.id %>/items/new" ><button type="button" class="btn btn-success">Add Item</button></a>
+<% end %>
+<a href="/inventories/<%= @inventory.id %>/items/:item_id/invoices"><button type="button" class="btn btn-success">My Invoices</button></a>
+<%# <%= link_to "Export", "/inventories/:inventory_id/items"%>
+<p id="notice" class="text-danger"><%= notice %></p>
+<table>
+  <tr>
+    <th>Item Id</th>
+    <th>Item Name</th>
+    <th>Item Price</th>
+    <th>Item Rating</th>
+    <th>Item Quantity</th>
+    <% if current_user.has_role? :admin %>
+      <th>Update Item</th>
+      <th>Delete Item</th>
+    <% end %>
+    <th>Button</th>
+  </tr>
+  <% @items.each do |item| %>
+    <tr>
+      <td><%= item.id %></td>
+      <td><%= item.name %></td>
+      <td><%= item.price %></td>
+      <td><%= item.rating %></td>
+			<td><%= item.quantity %></td>
+      <% if can? :update, item %>
+        <td><a href="/inventories/<%= @inventory.id %>/items/<%= item.id %>/edit" ><button type="button" class="btn btn-warning">Update</button></a></td>
+        <td><a href="/inventories/<%= @inventory.id %>/items/<%= item.id %>" ><button type="button" class="btn btn-danger">Delete</button></a></td>
+      <% end %>
+      <td><a href="/inventories/<%= @inventory.id %>/items/<%= item.id %>/invoices/new" ><button type="button" class="btn btn-success">Buy Now</button> </a></td>
+    </tr>
+  <% end %>
+</table>

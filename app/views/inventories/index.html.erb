@@ -1,0 +1,29 @@
+<h1 class="p-3 mb-2 bg-success text-white text-center">Inventory</h1>
+<% if current_user.has_role? :admin %>
+	<a href="/inventories/new"><button type="button" class="btn btn-success">Add Category</button></a>
+	<a href="/inventories/:inventory_id/items"><button type="button" class="btn btn-success">All Item</button></a>
+<% end %>
+<table>
+	<tr>
+		<th>Category Id</th>
+		<th>Category Name</th>
+		<th>Category Description</th>
+		<% if current_user.has_role? :admin %>
+			<th>Update Item</th>
+			<th>Delete Item</th>
+		<% end %>
+		<th>View Category</th>
+	</tr>
+	<% @inventories.each do |inventory| %>
+		<tr>
+			<td><%= inventory.id %></td>
+			<td><%= inventory.category_name %></td>
+			<td><%= inventory.discription %></td>
+			<% if can? :update, inventory %>
+				<td><a href=" /inventories/<%= inventory.id %>/edit" ><button type="button" class="btn btn-warning">Update</button></a></td>
+				<td><%= button_to 'Destroy', inventory,  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></td>
+			 <% end %>
+				<td><a href="/inventories/<%= inventory.id %>" ><button type="button" class="btn btn-success">View</button> </a></td>
+		</tr>
+  <% end %>
+</table>

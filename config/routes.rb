@@ -1,22 +1,30 @@
-# frozen_string_literal: true
-
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+  namespace :admin do
+      resources :users
+      resources :inventories
+      resources :invoices
+      resources :items
+      resources :roles, only: [:index, :show]
+
+      root to: "users#index"
+  end
   devise_for :users
   get 'invoices/index'
-  # get 'invoices/show'
-  # get 'invoices/new'
-  # get 'invoices/create'
-  root 'inventorys#index'
-  # get 'inventory/show'
-  # get 'inventory/new'
-  # get 'inventory/create'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
-  resources :inventorys do
+  get 'invoices/invoicecart/:id', :to => 'invoices#invoicecart'
+  root 'inventories#index'
+  
+  resources :inventories do
     resources :items do
       resources :invoices
+    end
+  end
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :user
+      resources :inventories
     end
   end
 end

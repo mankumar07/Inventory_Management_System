@@ -2,10 +2,10 @@
 
 require 'csv'
 class Item < ApplicationRecord
-  validates :name, :price, presence: true
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
+  validates :price, presence: true
   validates :rating, numericality: { less_than_equal: 5, message: 'Rating should be in between 1-5' }
   belongs_to :inventory, optional: true
-  has_one :stock
   has_many :invoices
 
   def self.to_csv

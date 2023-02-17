@@ -4,6 +4,8 @@
       "/home/developer/ruby_projects/inventory_management_website/config/environment.rb": {
         "lines": [
           null,
+          null,
+          null,
           1,
           null,
           null,
@@ -12,6 +14,8 @@
       },
       "/home/developer/ruby_projects/inventory_management_website/config/application.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -38,6 +42,8 @@
       },
       "/home/developer/ruby_projects/inventory_management_website/config/boot.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -46,6 +52,8 @@
       },
       "/home/developer/ruby_projects/inventory_management_website/config/environments/test.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           null,
@@ -113,6 +121,8 @@
           null,
           null,
           null,
+          null,
+          null,
           1,
           null,
           null,
@@ -126,6 +136,7 @@
       },
       "/home/developer/ruby_projects/inventory_management_website/config/initializers/content_security_policy.rb": {
         "lines": [
+          null,
           null,
           null,
           null,
@@ -475,6 +486,8 @@
           null,
           null,
           null,
+          null,
+          null,
           1,
           null,
           null
@@ -482,6 +495,7 @@
       },
       "/home/developer/ruby_projects/inventory_management_website/config/initializers/inflections.rb": {
         "lines": [
+          null,
           null,
           null,
           null,
@@ -512,11 +526,14 @@
           null,
           null,
           null,
+          null,
           null
         ]
       },
       "/home/developer/ruby_projects/inventory_management_website/spec/factories/items.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -529,6 +546,8 @@
       },
       "/home/developer/ruby_projects/inventory_management_website/spec/factories/users.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -541,10 +560,13 @@
       },
       "/home/developer/ruby_projects/inventory_management_website/config/routes.rb": {
         "lines": [
+          null,
+          null,
+          1,
           1,
           1,
           null,
-          null,
+          1,
           null,
           null,
           1,
@@ -565,6 +587,8 @@
       },
       "/home/developer/ruby_projects/inventory_management_website/app/models/user.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           null,
@@ -575,6 +599,8 @@
       },
       "/home/developer/ruby_projects/inventory_management_website/app/models/application_record.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null
@@ -582,30 +608,40 @@
       },
       "/home/developer/ruby_projects/inventory_management_website/app/helpers/application_helper.rb": {
         "lines": [
+          null,
+          null,
           1,
           null
         ]
       },
       "/home/developer/ruby_projects/inventory_management_website/app/helpers/inventory_helper.rb": {
         "lines": [
+          null,
+          null,
           1,
           null
         ]
       },
       "/home/developer/ruby_projects/inventory_management_website/app/helpers/invoices_helper.rb": {
         "lines": [
+          null,
+          null,
           1,
           null
         ]
       },
       "/home/developer/ruby_projects/inventory_management_website/app/helpers/items_helper.rb": {
         "lines": [
+          null,
+          null,
           1,
           null
         ]
       },
       "/home/developer/ruby_projects/inventory_management_website/spec/support/factory_bot.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null
@@ -613,6 +649,8 @@
       },
       "/home/developer/ruby_projects/inventory_management_website/app/controllers/items_controller.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           null,
@@ -622,11 +660,6 @@
           1,
           1,
           null,
-          null,
-          null,
-          1,
-          null,
-          1,
           null,
           null,
           1,
@@ -635,6 +668,26 @@
           null,
           null,
           1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
           1,
           null,
           1,
@@ -648,29 +701,15 @@
           null,
           null,
           1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          0,
-          null,
-          null,
-          null,
-          1,
           null,
           1,
           1,
           null,
           1,
           null,
+          null,
           1,
+          null,
           1,
           2,
           null,
@@ -679,12 +718,16 @@
       },
       "/home/developer/ruby_projects/inventory_management_website/app/controllers/application_controller.rb": {
         "lines": [
+          null,
+          null,
           1,
           null
         ]
       },
       "/home/developer/ruby_projects/inventory_management_website/app/models/inventory.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -693,14 +736,15 @@
       },
       "/home/developer/ruby_projects/inventory_management_website/app/models/item.rb": {
         "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
           null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           1,
           0,
@@ -710,7 +754,6 @@
           null,
           0,
           0,
-          null,
           null,
           null,
           null,
@@ -719,8 +762,9 @@
       },
       "/home/developer/ruby_projects/inventory_management_website/app/mailers/crud_notification_mailer.rb": {
         "lines": [
-          1,
           null,
+          null,
+          1,
           1,
           1,
           1,
@@ -745,6 +789,8 @@
       },
       "/home/developer/ruby_projects/inventory_management_website/app/mailers/application_mailer.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -752,6 +798,6 @@
         ]
       }
     },
-    "timestamp": 1676277418
+    "timestamp": 1676440223
   }
 }

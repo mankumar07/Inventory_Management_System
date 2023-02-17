@@ -1,5 +1,6 @@
-<h1>New Item</h1>
-
+<h2 class="p-3 mb-2 bg-success text-white text-center ">New Item</h2>
+<div class="d-flex align-items-center justify-content-center" style="height: 300px;padding: 17%;">
+<div class="card text-white bg-warning mb-3 p-5 m-5 bg-info text-white shadow rounded-2">
 <%= form_with model: @item,url: {action: "create"} do |form| %>
   <div>
     <%= form.label :name %><br>
@@ -23,8 +24,17 @@
     <div><%= message %></div>
     <% end %>
   </div>
+  <div>
+    <%= form.label :quantity %><br>
+    <%= form.text_field :quantity %>
+    <% @item.errors.full_messages_for(:rating).each do |message| %>
+    <div><%= message %></div>
+    <% end %>
+  </div><br>
 
   <div>
     <%= form.submit %>
   </div>
 <% end %>
+</div>
+</div>

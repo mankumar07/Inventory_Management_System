@@ -1,17 +1,32 @@
-<h1>New Invoice</h1>
+<h2 class="p-3 mb-2 bg-success text-white text-center ">Your New Invoice Details</h2>
+<div class="d-flex align-items-center justify-content-center" style="height: 300px;padding: 17%;">
+<div class="card text-white bg-warning mb-3 p-5 m-5 bg-info text-white shadow rounded-2">
+  <ul>
+    <li>
+      Item Id => <%= @item.id %>
+    </li>
+    <li>
+      Item Name => <%= @item.name %>
+    </li>
+    <li>
+      Item Price => <%= @item.price %>
+    </li>
+    <li>
+      Item Rating => <%= @item.rating %>
+    </li>
+  </ul>
 
-<%= form_with model: @invoice,url: {action: "create"} do |form| %>
-  <div>
-    <%= form.label :quantity %><br>
-    <%= form.text_field :quantity %>
-  </div>
-
-   <div>
-    <%= form.label :total_price %><br>
-    <%= form.text_field :total_price %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+  <%= form_with model: @invoice,url: {action: "create"} do |form| %>
+    <div>
+      <%= form.label :quantity %><br>
+      <%= form.number_field :quantity %>
+      <% @invoice.errors.full_messages_for(:quantity).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div><br>
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>
+</div>

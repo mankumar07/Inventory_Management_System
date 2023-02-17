@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
 class Inventory < ApplicationRecord
-  validates :item_name, presence: true
+  validates :category_name, presence: true, uniqueness: { case_sensitive: false }
   has_many :items, dependent: :destroy
 end

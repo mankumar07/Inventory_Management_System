@@ -1,0 +1,20 @@
+<h1 class="p-3 mb-2 bg-success text-white text-center ">Update Category</h1>
+<div class="d-flex align-items-center justify-content-center" style="height: 300px;padding: 14%;">
+<div class="card text-white bg-warning mb-3 p-5 m-5 bg-info text-white shadow rounded-2">
+  <%= form_with model: @inventory,url: {action: "update"} do |form| %>
+    <div>
+      <%= form.label :category_name %><br>
+      <%= form.text_field :category_name %>
+    </div>
+
+    <div>
+      <%= form.label :discription %><br>
+      <%= form.text_area :discription %>
+    </div><br>
+
+    <div class="btn btn-success">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>
+</div>

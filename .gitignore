@@ -33,3 +33,10 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+.rspec
+/test/*
+/home/developer/Ecommercerails/.byebug_history
+/helpers/*
+.env
+.env*.local
+.rvmrc

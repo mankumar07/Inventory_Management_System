@@ -1,20 +1,29 @@
-<h1>My Invoice</h1>
-
-<ul>
-    <li>
-       Costomer Name => <%= @costomer.name %>
-    </li>
-     <li>
-        Item Name => <%= @item.name %>
-    </li>
-    <li>
-        Costomer Id => <%= @invoice.costomer_id %>
-    </li>
-    <li>
-        Item Id => <%= @invoice.item_id %>
-    </li>
-    <li>
-       Total Price => <%= @invoice.total_price %>
-    </li>
-
-</ul>
+<section >
+  <div class="d-flex align-items-center justify-content-center" style="height: 417px;">
+    <div class="card text-white bg-success mb-3" style="max-width: 30rem;">
+      <div class="card-header"><h1>My Invoice</h1></div>
+        <div class="card-body">
+          <p class="card-text">
+            <li>
+              User Name => <%= @user.email %>
+            </li>
+            <li>
+              Item Name => <%= @item.name %>
+            </li>
+            <li>
+              Item Price => <%= @item.price %>
+            </li>
+            <li>
+              Item quantity => <%= @invoice.quantity %>
+            </li>
+            <li>
+              Invoice Time => <%= @invoice.created_at %>
+            </li>
+            <li>
+              <h4>Total Price => <%= @invoice.total_price %></h4>
+            </li>
+          </p>
+        </div>
+      </div>
+    </div>
+</section>

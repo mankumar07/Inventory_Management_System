@@ -1,22 +1,29 @@
-<p>Welcome <%= current_user.email %></p>
-<h1>Your Invoice</h1>
-<h3>Costomer Name => <%= @costomer.name %></h3>
+<h1 class="p-3 mb-2 bg-success text-white text-center">Your Invoice</h1>
+<h3 class="text-danger">User Name => <%= @user.email %></h3>
 <table>
 	<tr>
 		<th>Invoice Id</th>
     <th>Item name</th>
+		<th>Item price</th>
 		<th>Item quantity</th>
 		<th>Invoice Total Price</th>
+		<th>Remove Invoice</th>
+		<th>View Invoice</th>
 	</tr>
   <% @invoices.each do |invoice| %>
 	<tr>
 		<td><%= invoice.id %></td>
   	<% item = Item.find(invoice.item_id)%>
     <td><%= item.name %></td>
+		<td><%= item.price %></td>
 		<td><%= invoice.quantity %></td>
 		<td><%= invoice.total_price %></td>
-
+		<td><%= link_to "Remove", "/inventories/#{@inventory.id}/items/#{item.id}/invoices/#{invoice.id}", data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></td>
+		<td><a href="/inventories/<%= @inventory.id %>/items/<%= invoice.item_id %>/invoices/<%= invoice.id %>" ><button type="button" class="btn btn-success">View Invoice</button> </a></td>
 	</tr>
   	<% end %>
 </table>
-<h3>Your Total Invoice is => <%= Invoice.sum(:total_price)%></h3>
+<h3 class ="bg bg-danger text-center text-white">Your Total Items Price is => <%= current_user.invoices.sum(:total_price) %></h3>

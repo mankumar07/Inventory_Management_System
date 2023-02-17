@@ -1,24 +1,30 @@
-<h1>Edit Item</h1>
+<h1 class="p-3 mb-2 bg-success text-white text-center ">Update Item</h1>
+<div class="d-flex align-items-center justify-content-center" style="height: 300px;padding: 17%;">
+<div class="card text-white bg-warning mb-3 p-5 m-5 bg-info text-white shadow rounded-2">
+  <%= form_with model: @item,url: {action: "update"} do |form| %>
+    <div>
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+      <% @item.errors.full_messages_for(:name).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+    <div>
+      <%= form.label :price %><br>
+        <%= form.number_field :price %>
+    </div>
+    <div>
+      <%= form.label :rating %><br>
+      <%= form.text_field :rating %>
+    </div>
+    <div>
+      <%= form.label :quantity %><br>
+      <%= form.text_field :quantity %>
+    </div><br>
 
-<%= form_with model: @item,url: {action: "update"} do |form| %>
-  <div>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-    <% @item.errors.full_messages_for(:name).each do |message| %>
-    <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.label :price %><br>
-    <%= form.number_field :price %>
-  </div>
-  <div>
-    <%= form.label :rating %><br>
-    <%= form.text_field :rating %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+    <div class="btn btn-success">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>
+</div>
