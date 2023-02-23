@@ -54,16 +54,16 @@ gem 'byebug'
 gem 'devise'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'administrate'
+  gem 'cancancan'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails', '~> 6.1.0'
   gem 'letter_opener'
   gem 'rails-controller-testing'
+  gem 'rolify'
   gem 'rspec-rails', '>= 3.9.0'
   gem 'rubocop-rails', require: false
   gem 'shoulda-matchers'
-  gem 'rolify'
-  gem 'cancancan'
-  gem 'administrate'
 end
 
 group :development do

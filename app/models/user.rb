@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :invoices
   # after_create :assign_default_role
   after_initialize :set_default_role, if: :new_record?
-  validates :roles, presence: true 
+  validates :roles, presence: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -16,7 +16,6 @@ class User < ApplicationRecord
   # end
 
   def set_default_role
-    self.add_role(:normal)
+    add_role(:normal)
   end
 end
-

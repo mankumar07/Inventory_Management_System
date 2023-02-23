@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SendEmailJob < ApplicationJob
   self.queue_name_prefix = nil
   queue_as :default
