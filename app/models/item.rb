@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   validates :price, presence: true
   validates :rating, numericality: { less_than_equal: 5, message: 'Rating should be in between 1-5' }
   belongs_to :inventory, optional: true
-  has_many :invoices
+  has_many :invoices, dependent: :destroy
 
   def self.to_csv
     attributes = %w[id name price rating]
@@ -18,5 +18,8 @@ class Item < ApplicationRecord
         csv << attributes.map { |attr| item.send(attr) }
       end
     end
+  end
+  def self.search(search)
+    where("lower(items.name) LIKE :serach OR lower(items.name) LIKE :search",search: "%#{search.downcase}%").uniq
   end
 end

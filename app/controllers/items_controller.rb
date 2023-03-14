@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ItemsController < ApplicationController
   def index
     @items = Item.all
@@ -37,7 +39,6 @@ class ItemsController < ApplicationController
 
     if @item.update(item_params)
       SendEmailJob.set(wait: 3.minutes).perform_later(@item)
-      # CrudNotificationMailer.update_notification(@item).deliver_now
       redirect_to inventories_url
     else
       render :edit, status: :unprocessable_entity
@@ -51,6 +52,14 @@ class ItemsController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
+  def search
+    if params[:search].blank?
+      redirect_to inventories_url and return
+    else
+      @parameter = params[:search].downcase
+      @results = Item.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+    end
+  end
   private
 
   def item_params

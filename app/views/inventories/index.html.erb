@@ -18,11 +18,11 @@
 		<tr>
 			<td><%= inventory.id %></td>
 			<td><%= inventory.category_name %></td>
-			<td><%= inventory.discription %></td>
+			<td><%= inventory.description %></td>
 			<% if can? :update, inventory %>
 				<td><a href=" /inventories/<%= inventory.id %>/edit" ><button type="button" class="btn btn-warning">Update</button></a></td>
 				<td><%= button_to 'Destroy', inventory,  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></td>
-			 <% end %>
+			<% end %>
 				<td><a href="/inventories/<%= inventory.id %>" ><button type="button" class="btn btn-success">View</button> </a></td>
 		</tr>
   <% end %>

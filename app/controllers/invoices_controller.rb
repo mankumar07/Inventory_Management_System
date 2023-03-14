@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class InvoicesController < ApplicationController
   def index
     @user = User.find(current_user.id)
@@ -7,7 +9,7 @@ class InvoicesController < ApplicationController
 
   def show
     @invoice = Invoice.find(params[:id])
-    @user = User.find(@invoice.user_id )
+    @user = User.find(@invoice.user_id)
     @item = Item.find(params[:item_id])
   end
 
@@ -20,10 +22,11 @@ class InvoicesController < ApplicationController
     user = User.find(current_user.id)
     @item = Item.find(params[:item_id])
     quantity = params[:invoice][:quantity]
-    item_quantity = @item.quantity.to_i-quantity.to_i
-    if item_quantity >=0
-      total_price = @item.price*quantity.to_i
-      @invoice = user.invoices.create(quantity: params[:invoice][:quantity],total_price: total_price, item_id: params[:item_id])
+    item_quantity = @item.quantity.to_i - quantity.to_i
+    if item_quantity >= 0
+      total_price = @item.price * quantity.to_i
+      @invoice = user.invoices.create(quantity: params[:invoice][:quantity], total_price: total_price,
+                                      item_id: params[:item_id])
       if @invoice.save
         @item.update(quantity: item_quantity)
         redirect_to inventory_item_invoices_path
@@ -31,7 +34,8 @@ class InvoicesController < ApplicationController
         render :new, status: :unprocessable_entity
       end
     else
-      redirect_to "/inventories/#{params[:inventory_id]}", flash: {notice: "Sorry too much quantity, please enter available item quantity"}
+      redirect_to "/inventories/#{params[:inventory_id]}",
+                  flash: { notice: 'Sorry too much quantity, please enter available item quantity' }
     end
   end
 
@@ -45,7 +49,8 @@ class InvoicesController < ApplicationController
   end
 
   private
-    def invoice_params
-      params.require(:invoice).permit(:quantity, :total_price)
-    end
+
+  def invoice_params
+    params.require(:invoice).permit(:quantity, :total_price)
+  end
 end

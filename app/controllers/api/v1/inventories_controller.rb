@@ -1,53 +1,56 @@
-class Api::V1::InventoriesController < ApplicationController
-  def index
-    @inventories = Inventory.all
-    render json: @inventories 
-  end
+# frozen_string_literal: true
 
-  def show
-    @inventory = Inventory.find(params[:id])
-    @items = @inventory.items
-    render json: @items 
+module Api
+  module V1
+    class InventoriesController < ApplicationController
+      protect_from_forgery with: :null_session
+      def index
+        @inventories = Inventory.all
+        render json: @inventories
+      end
 
-  end
+      def show
+        @inventory = Inventory.find(params[:id])
+        @items = @inventory.items
+        render json: @items
+      end
 
-  def new
-    @inventory = Inventory.new
-  end
+      def create
+        @inventory = Inventory.new(inventory_params)
 
-  def create
-    @inventory = Inventory.new(inventory_params)
+        if @inventory.save
+          # redirect_to @inventory
+          render json: @inventory, status: :created
+        else
+          render json: @inventory.errors, status: :unprocessable_entity
+        end
+      end
 
-    if @inventory.save
-      redirect_to @inventory
-    else
-      render :new, status: :unprocessable_entity
+      def update
+        @inventory = Inventory.find(params[:id])
+
+        if @inventory.update(inventory_params)
+          # redirect_to inventories_path
+          render json: { message: 'Inventory updated successfully' }
+        else
+          render json: { message: @inventory.errors.messages }
+        end
+      end
+
+      def destroy
+        @inventory = Inventory.find(params[:id])
+        @inventory.destroy
+
+        # redirect_to root_path, status: :see_other
+        # render json: { message: 'Inventory deleted successfully' }
+        render json: @inventory, status: :no_content
+      end
+
+      private
+
+      def inventory_params
+        params.require(:inventory).permit(:category_name, :description)
+      end
     end
   end
-
-  def edit
-    @inventory = Inventory.find(params[:id])
-  end
-
-  def update
-    @inventory = Inventory.find(params[:id])
-
-    if @inventory.update(inventory_params)
-      redirect_to inventories_path
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
-  def destroy
-    @inventory = Inventory.find(params[:id])
-    @inventory.destroy
-
-    redirect_to root_path, status: :see_other
-  end
-
-  private
-    def inventory_params
-      params.require(:inventory).permit(:category_name, :discription)
-    end
 end

@@ -1,4 +1,6 @@
-require "administrate/base_dashboard"
+# frozen_string_literal: true
+
+require 'administrate/base_dashboard'
 
 class InventoryDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -9,11 +11,11 @@ class InventoryDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    discription: Field::String,
+    description: Field::String,
     item_name: Field::String,
     items: Field::HasMany,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -23,7 +25,7 @@ class InventoryDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    discription
+    description
     item_name
     items
   ].freeze
@@ -32,7 +34,7 @@ class InventoryDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    discription
+    description
     item_name
     items
     created_at
@@ -43,7 +45,7 @@ class InventoryDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    discription
+    description
     item_name
     items
   ].freeze

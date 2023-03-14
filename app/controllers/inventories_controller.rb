@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class InventoriesController < ApplicationController
-  before_action :authenticate_user! , only: %i[index , show ]
+  before_action :authenticate_user!, only: %i[index , show]
   load_and_authorize_resource
 
   def index
@@ -48,7 +50,8 @@ class InventoriesController < ApplicationController
   end
 
   private
-    def inventory_params
-      params.require(:inventory).permit(:category_name, :discription)
-    end
+
+  def inventory_params
+    params.require(:inventory).permit(:category_name, :description)
+  end
 end

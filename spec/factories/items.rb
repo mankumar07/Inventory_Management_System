@@ -5,6 +5,6 @@ FactoryBot.define do
     name { 'something' }
     price  { 10 }
     rating { 4 }
-    inventory_id { 1 }
+    inventory
   end
 end
